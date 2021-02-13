@@ -1,0 +1,34 @@
+HELP.md
+SpringBoot-JWT-2FA/.mvn
+SpringBoot-JWT-2FA/target/
+SpringBoot-JWT-2FA/!.mvn/wrapper/maven-wrapper.jar
+SpringBoot-JWT-2FA/!**/src/main/**/target/
+SpringBoot-JWT-2FA/!**/src/test/**/target/
+
+### STS ###
+SpringBoot-JWT-2FA/.apt_generated
+SpringBoot-JWT-2FA/.classpath
+SpringBoot-JWT-2FA/.factorypath
+SpringBoot-JWT-2FA/.project
+SpringBoot-JWT-2FA/.settings
+SpringBoot-JWT-2FA/.springBeans
+SpringBoot-JWT-2FA/.sts4-cache
+
+### IntelliJ IDEA ###
+SpringBoot-JWT-2FA/.idea
+SpringBoot-JWT-2FA/*.iws
+SpringBoot-JWT-2FA/*.iml
+SpringBoot-JWT-2FA/*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
