@@ -4,3 +4,6 @@ Two-Factor Authentication กลายเป็นเรื่องธรรม
 
 ![Captureaa](https://user-images.githubusercontent.com/15135199/107857637-1c904780-6e62-11eb-8f71-d2f59841ad73.JPG)
 
+![Captureaa](https://user-images.githubusercontent.com/15135199/108252416-321baf00-718b-11eb-93dc-dd5c36b0c5c5.JPG)
+
+
