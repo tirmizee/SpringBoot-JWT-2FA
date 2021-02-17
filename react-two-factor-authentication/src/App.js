@@ -17,7 +17,7 @@ class App extends  React.Component {
     return (
       <div className="App">
         <BrowserRouter>
-          <Route path="/login"  component={Login} />
+          <Route path="/login" component={Login} />
           <ProtectedRoute path="/" component={Main} />
         </BrowserRouter>
       </div>

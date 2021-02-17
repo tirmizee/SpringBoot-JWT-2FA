@@ -1,20 +1,43 @@
 import React, { PureComponent } from 'react';
 import auth from '../../services/AuthService/AuthService'
+import Modal from './Modal'
 import PropTypes from 'prop-types';
 import  './Login.scss';
 
 class Login extends PureComponent { 
+
   constructor(props) {
     super(props);
     this.state = {
       username : '', 
-      password : ''
+      password : '', 
+      refId : '',
+      otp : '',
+      otpExpire : 0,
+      otpLodding : false,
+      isOpen : false
     }
+    this.otpExpireInterval = null;
     this.onLogin = this.onLogin.bind(this);
+    this.onLoginOtp = this.onLoginOtp.bind(this);
     this.onChange = this.onChange.bind(this);
+    this.onChangeOtp = this.onChangeOtp.bind(this);
+    this.countDown = this.countDown.bind(this);
   }
 
-  onLogin(event) {
+  countDown = () => {
+    const { otpExpire } = this.state;
+    if (otpExpire === 0) {
+      clearInterval(this.otpExpireInterval);
+      this.setState({isOpen : false});
+    } else {
+      this.setState(preState => ({ 
+        otpExpire : preState.otpExpire - 1
+      }));
+    }
+  }
+
+  onLogin = (event) => {
     event.preventDefault();
     const { username, password } = this.state;
     let usernamePassword = username + ':' + password;
@@ -22,52 +45,83 @@ class Login extends PureComponent {
     
     auth.login(usernamePasswordBase64)
       .then((response) => {
-        console.log(response);
-        auth.setAuthenticated(true);
-        this.props.history.push("/")
+        const { status } = response;
+        if(status) {
+          auth.setAuthenticated(true);
+          this.props.history.push("/");
+        } 
       })
       .catch((error) => {
         if(error.response) {
-          console.log(error.response.status);
+          console.log(error.response)
+          const { code , expireDate, refId} = error.response.data;
+          if(code === 'A001'){
+            const otpExpire = Math.round((expireDate - new Date()) / 1000);
+            this.setState({ refId, otpExpire, isOpen : true });
+            this.otpExpireInterval = setInterval(this.countDown, 1000);
+          }
         }
       });
   }
 
-  onChange(event) {
+  onLoginOtp() {
+    const { username, password, otp } = this.state;
+    let usernamePassword = username + ':' + password;
+    let usernamePasswordBase64 = btoa(usernamePassword);
+    
+    const callback = () => { 
+      auth.loginOtp(usernamePasswordBase64, otp)
+        .then((response) => {
+          const { status } = response;
+          if(status) {
+            auth.setAuthenticated(true);
+            this.props.history.push("/");
+          } 
+        })
+        .catch((error) => {
+          if(error.response) {
+            console.log(error.response)
+          }
+        });
+    }
+
+    this.setState({ otpLodding : true }, callback);
+    
+  }
+
+  onChange = (event) => {
     const { name, value } = event.target;
     this.setState({ [name] : value });
   }
 
-  componentWillMount = () => {
-    console.log('Login will mount');
+  onChangeOtp = (event) => {
+    const { name, value } = event.target;
+    if(value.length <= 6) {
+      this.setState({ [name] : value });
+    }
   }
 
-  componentDidMount = () => {
-    console.log('Login mounted');
-  }
+  componentWillMount = () => {}
 
-  componentWillReceiveProps = (nextProps) => {
-    console.log('Login will receive props', nextProps);
-  }
+  componentDidMount = () => {}
 
-  componentWillUpdate = (nextProps, nextState) => {
-    console.log('Login will update', nextProps, nextState);
-  }
+  componentWillReceiveProps = (nextProps) => {}
 
-  componentDidUpdate = () => {
-    console.log('Login did update');
-  }
+  componentWillUpdate = (nextProps, nextState) => {}
+
+  componentDidUpdate = () => {}
 
   componentWillUnmount = () => {
-    console.log('Login will unmount');
+    clearInterval(this.otpExpireInterval);
   }
 
   render () {
-    const { username, password } = this.state;
+    const { username, password, otpExpire, isOpen, refId, otp, otpLodding } = this.state;
     return (
+      <>
       <div className="container">
-         <div className="form-container">
-           <form className="sign-in-form">
+        <div className="form-container">
+          <form className="sign-in-form">
             <h2 className="title">Sign in</h2>
             <div className="input-field">
               <i className="fa fa-user"></i>
@@ -99,9 +153,19 @@ class Login extends PureComponent {
               <a href="#" className="social-icon"><i className="fa fa-facebook"></i></a>
               <a href="#" className="social-icon"><i className="fa fa-twitter"></i></a>
             </div>
-           </form>
-         </div>
+          </form>
+        </div>
+        
       </div>
+      <Modal 
+        lodding={otpLodding}
+        otp={otp}
+        otpExpire={otpExpire} 
+        isOpen={isOpen}
+        onChange={this.onChangeOtp}
+        onSend={this.onLoginOtp}
+        refId={refId} />
+      </>
     );
   }
 }

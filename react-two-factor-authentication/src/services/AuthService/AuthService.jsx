@@ -11,6 +11,11 @@ class AuthService {
     return Axios.post('http://localhost:9000/auth/token', {}, {headers});
   }
 
+  loginOtp(data, otp) {
+    const headers = { 'Authorization' : `Basic ${data}` };
+    return Axios.post(`http://localhost:9000/auth/token?verificationCode=${otp}`, {}, {headers});
+  }
+
   logout(callback) {
     this.authenticated = false;
     callback();
