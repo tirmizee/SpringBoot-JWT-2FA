@@ -7,7 +7,7 @@ Two-Factor Authentication กลายเป็นเรื่องธรรม
 </p>
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/15135199/108252416-321baf00-718b-11eb-93dc-dd5c36b0c5c5.JPG" width="600">
+  <img src="https://user-images.githubusercontent.com/15135199/108252416-321baf00-718b-11eb-93dc-dd5c36b0c5c5.JPG" width="400">
 </p>
 
 
