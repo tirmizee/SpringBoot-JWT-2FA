@@ -41,10 +41,10 @@ const Modal = ({
                         onChange={onChange}
                         placeholder="______"/>
                     </div>
-                <small class="error">ddd</small>
+                <small class="error"></small>
                 <button className="otp-btn" onClick={onSend} disabled={lodding}>{ lodding ? 'Send...' : 'Send' }</button>
             </div>
-        </section> 
+        </section>  
     );
 }
 
