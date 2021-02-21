@@ -2,7 +2,7 @@
 
 ### Demo
 
-- User enters email username and password.
+- User enters username and password.
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/15135199/107857637-1c904780-6e62-11eb-8f71-d2f59841ad73.JPG" width="700">
