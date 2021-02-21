@@ -14,7 +14,7 @@
   <img src="https://user-images.githubusercontent.com/15135199/108620984-5bc22800-7462-11eb-9deb-158d7b3f88b5.JPG" width="400">
 </p>
 
-- The app authenticates username and password and verifies the one-time code.
+- The system authenticates username and password and verifies the one-time code.
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/15135199/108253659-9ee37900-718c-11eb-9a81-49f480d8c760.JPG" width="400">
