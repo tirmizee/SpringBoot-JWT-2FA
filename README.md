@@ -11,7 +11,7 @@
 -  The system will send One-Time-Code to email.
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/15135199/108620984-5bc22800-7462-11eb-9deb-158d7b3f88b5.JPG" width="400">
+  <img src="https://user-images.githubusercontent.com/15135199/108650154-7becf800-74f1-11eb-824b-a091efef020c.JPG" width="400">
 </p>
 
 - The system authenticates username and password and verifies the one-time code.
