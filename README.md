@@ -1,5 +1,7 @@
 # SpringBoot-JWT-2FA
 
+### Register demo
+
 ### Login demo
 
 - User enters username and password.
