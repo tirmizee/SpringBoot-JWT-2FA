@@ -12,7 +12,7 @@
 - User enters username and password.
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/15135199/107857637-1c904780-6e62-11eb-8f71-d2f59841ad73.JPG" width="700">
+  <img src="https://user-images.githubusercontent.com/15135199/109366547-43209a80-78c6-11eb-8b96-e9ca820b8ff0.JPG" width="400">
 </p>
 
 -  The system will send One-Time-Code to email.
