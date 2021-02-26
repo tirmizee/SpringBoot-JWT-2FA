@@ -3,7 +3,7 @@
 ### Register demo
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/15135199/109338553-01c5c600-7899-11eb-9a1c-f73aa2d361c6.JPG" width="450">
+  <img src="https://user-images.githubusercontent.com/15135199/109338553-01c5c600-7899-11eb-9a1c-f73aa2d361c6.JPG" width="350">
 </p>
 
 
