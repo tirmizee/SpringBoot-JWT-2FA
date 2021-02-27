@@ -4,7 +4,7 @@ import './Modal.scss'
 const toMinute = (secondTime) => {
     let minute =  Math.floor(secondTime / 60);
     let second = secondTime % 60;
-    return minute + ':' + leftPad(second, 2);
+    return (minute.toString().length == 1 ? '0' + minute : minute) + ':' + leftPad(second, 2);
 }
 
 const leftPad = (str, max) => {
@@ -23,9 +23,9 @@ const Modal = ({
     error
 }) => {
 
-    const {isError = false, message = ''} = error || {};
+    const {isError, message } = error || {isError : false, message : ''};
 
-    return (
+    return ( 
         !isOpen ? null :
         <section className="modal-container">
             <div className="modal">
@@ -41,7 +41,7 @@ const Modal = ({
                         onChange={onChange}
                         placeholder="______"/>
                     </div>
-                <small class="error"></small>
+                    
                 <button className="otp-btn" onClick={onSend} disabled={lodding}>{ lodding ? 'Send...' : 'Send' }</button>
             </div>
         </section>  
