@@ -9,7 +9,7 @@
 
 ### Login demo
 
-- User enters username and password.
+- enters username and password.
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/15135199/109366547-43209a80-78c6-11eb-8b96-e9ca820b8ff0.JPG" width="350">
